@@ -95,3 +95,6 @@
 
 # Ignore .env files as they are personal
 #/.env
+
+# Mac specific file directory.
+.DS_Store

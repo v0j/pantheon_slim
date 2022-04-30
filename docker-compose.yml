@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build: ./docker/web
+    container_name: web_intern8
+    ports:
+      - 80:80
+    volumes:
+      - .:/opt/drupal:consistent
+  db:
+    image: mariadb:10.4
+    container_name: db_intern8
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: default
+      MYSQL_ROOT_PASSWORD: root
+  node:
+    build: docker/node
+    container_name: node_intern8
+    volumes:
+      - .:/usr/src/app:consistent
+volumes:
+  dbdata:
+    driver: local

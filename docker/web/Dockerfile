@@ -11,10 +11,9 @@ RUN apt-get update; \
   docker-php-ext-install zip
 
 ENV PATH="/root/.composer/vendor/bin:$PATH"
+ENV PATH="$PATH:/opt/drupal/vendor/bin"
 
 RUN composer global require consolidation/cgr
-
-RUN cgr drush/drush
 
 RUN rm -rf /opt/drupal
 
